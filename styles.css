@@ -1,4 +1,7 @@
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
 
 :root{
   --fondo:#f4f7fb;
@@ -7,11 +10,12 @@
   --borde:#e3e8ef;
   --blanco:#fff;
 
+  /* COLORES DEL MAPA DE CALOR */
   --sin-datos:#94a3b8;
-  --bajo:#22c55e;
+  --bajo:#16a34a;
   --medio:#facc15;
-  --alto:#f97316;
-  --critico:#ef4444;
+  --alto:#dc2626;
+  --critico:#991b1b;
 }
 
 body{
@@ -20,6 +24,8 @@ body{
   background:var(--fondo);
   color:var(--texto);
 }
+
+/* ENCABEZADO */
 
 .header{
   background:white;
@@ -35,7 +41,8 @@ body{
   font-size:28px;
 }
 
-.subtitulo,.detalle-label{
+.subtitulo,
+.detalle-label{
   margin:0;
   font-size:11px;
   letter-spacing:1.5px;
@@ -62,8 +69,15 @@ body{
   background:#aaa;
 }
 
-.estado-dot.online{background:#20a464}
-.estado-dot.error{background:#d9363e}
+.estado-dot.online{
+  background:#20a464;
+}
+
+.estado-dot.error{
+  background:#d9363e;
+}
+
+/* INDICADORES KPI */
 
 .kpis{
   display:grid;
@@ -97,10 +111,12 @@ body{
   border-radius:999px;
 }
 
+/* ALERTA PREVENTIVA - ROJO */
+
 .alerta-predictiva{
   margin:0 4% 16px;
-  background:linear-gradient(90deg,#fff7ed,#fff);
-  border:1px solid #fed7aa;
+  background:linear-gradient(90deg,#fef2f2,#fff);
+  border:1px solid #fecaca;
   border-left:5px solid var(--alto);
   border-radius:14px;
   padding:14px 18px;
@@ -109,7 +125,9 @@ body{
   align-items:center;
 }
 
-.alerta-predictiva.oculto{display:none}
+.alerta-predictiva.oculto{
+  display:none;
+}
 
 .alerta-icono{
   width:42px;
@@ -118,8 +136,8 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#ffedd5;
-  color:#ea580c;
+  background:#fee2e2;
+  color:#dc2626;
   font-size:23px;
   font-weight:bold;
 }
@@ -129,7 +147,7 @@ body{
   font-size:10px;
   letter-spacing:1.2px;
   font-weight:800;
-  color:#9a3412;
+  color:#b91c1c;
   margin-bottom:3px;
 }
 
@@ -140,9 +158,11 @@ body{
 
 .alerta-predictiva p{
   margin:4px 0 0;
-  color:#7c2d12;
+  color:#7f1d1d;
   font-size:13px;
 }
+
+/* LEYENDA DEL MAPA */
 
 .leyenda{
   display:flex;
@@ -158,18 +178,37 @@ body{
   gap:6px;
 }
 
-.circulo,.punto{
+.circulo,
+.punto{
   width:11px;
   height:11px;
   border-radius:50%;
   display:inline-block;
 }
 
-.sin-datos{background:var(--sin-datos)}
-.bajo{background:var(--bajo)}
-.medio{background:var(--medio)}
-.alto{background:var(--alto)}
-.critico{background:var(--critico)}
+/* CLASIFICACION DE NIVELES */
+
+.sin-datos{
+  background:var(--sin-datos);
+}
+
+.bajo{
+  background:var(--bajo);
+}
+
+.medio{
+  background:var(--medio);
+}
+
+.alto{
+  background:var(--alto);
+}
+
+.critico{
+  background:var(--critico);
+}
+
+/* CONTENEDOR PRINCIPAL */
 
 .contenedor-principal{
   display:grid;
@@ -177,6 +216,8 @@ body{
   gap:20px;
   padding:0 4% 28px;
 }
+
+/* MAPA */
 
 .mapa-wrapper{
   background:white;
@@ -223,6 +264,8 @@ body{
   display:block;
 }
 
+/* POLIGONOS DEL MAPA DE CALOR */
+
 .mapa-overlay{
   position:absolute;
   inset:0;
@@ -237,35 +280,51 @@ body{
   stroke:var(--sin-datos);
   stroke-width:3;
   vector-effect:non-scaling-stroke;
-  transition:fill .25s ease,stroke .25s ease,filter .25s ease,opacity .25s ease;
+  transition:
+    fill .25s ease,
+    stroke .25s ease,
+    filter .25s ease,
+    opacity .25s ease;
   pointer-events:auto;
   cursor:pointer;
 }
+
+/* SIN DATOS - GRIS */
 
 .mapa-overlay polygon.sin-datos{
   fill:rgba(148,163,184,.14);
   stroke:var(--sin-datos);
 }
 
+/* BAJO - VERDE */
+
 .mapa-overlay polygon.bajo{
-  fill:rgba(34,197,94,.30);
+  fill:rgba(22,163,74,.30);
   stroke:var(--bajo);
 }
+
+/* MEDIO - AMARILLO */
 
 .mapa-overlay polygon.medio{
   fill:rgba(250,204,21,.34);
   stroke:#eab308;
 }
 
+/* ALTO - ROJO */
+
 .mapa-overlay polygon.alto{
-  fill:rgba(249,115,22,.36);
+  fill:rgba(220,38,38,.36);
   stroke:var(--alto);
 }
 
+/* CRITICO - ROJO OSCURO */
+
 .mapa-overlay polygon.critico{
-  fill:rgba(239,68,68,.39);
-  stroke:#dc2626;
+  fill:rgba(153,27,27,.42);
+  stroke:var(--critico);
 }
+
+/* SELECCION DEL MAPA */
 
 .mapa-overlay polygon:hover,
 .mapa-overlay polygon.seleccionado{
@@ -273,6 +332,8 @@ body{
   filter:drop-shadow(0 0 7px rgba(15,23,42,.35));
   stroke-width:5;
 }
+
+/* IDENTIFICADORES DE SECTORES */
 
 .sector{
   position:absolute;
@@ -296,16 +357,54 @@ body{
   transform:scale(1.12);
 }
 
-.sector.critico{color:#fff}
+/* TEXTO BLANCO PARA FONDOS ROJOS */
 
-.sector-1{left:10%;top:31%}
-.sector-2{left:19%;top:8%}
-.sector-3{left:39%;top:50%}
-.sector-4{left:58%;top:20%}
-.sector-5{left:54%;top:65%}
-.sector-6{left:76%;top:53%}
-.sector-7{left:91%;top:22%}
-.sector-8{left:18%;top:78%}
+.sector.alto,
+.sector.critico{
+  color:#fff;
+}
+
+.sector-1{
+  left:10%;
+  top:31%;
+}
+
+.sector-2{
+  left:19%;
+  top:8%;
+}
+
+.sector-3{
+  left:39%;
+  top:50%;
+}
+
+.sector-4{
+  left:58%;
+  top:20%;
+}
+
+.sector-5{
+  left:54%;
+  top:65%;
+}
+
+.sector-6{
+  left:76%;
+  top:53%;
+}
+
+.sector-7{
+  left:91%;
+  top:22%;
+}
+
+.sector-8{
+  left:18%;
+  top:78%;
+}
+
+/* DETALLE DEL SECTOR */
 
 .detalle{
   background:white;
@@ -319,7 +418,8 @@ body{
   margin:7px 0 12px;
 }
 
-.badge,.nivel-tabla{
+.badge,
+.nivel-tabla{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -327,6 +427,30 @@ body{
   border-radius:999px;
   font-size:11px;
   font-weight:800;
+}
+
+.badge.alto,
+.nivel-tabla.alto{
+  background:var(--alto);
+  color:#fff;
+}
+
+.badge.medio,
+.nivel-tabla.medio{
+  background:var(--medio);
+  color:#1f2937;
+}
+
+.badge.bajo,
+.nivel-tabla.bajo{
+  background:var(--bajo);
+  color:#fff;
+}
+
+.badge.critico,
+.nivel-tabla.critico{
+  background:var(--critico);
+  color:#fff;
 }
 
 .detalle-grid{
@@ -352,6 +476,8 @@ body{
 .detalle-grid strong{
   font-size:17px;
 }
+
+/* DISTRIBUCION DE REGISTROS */
 
 .distribucion{
   margin-top:22px;
@@ -390,6 +516,8 @@ body{
   gap:7px;
 }
 
+/* FACTOR PRINCIPAL */
+
 .factor{
   margin-top:22px;
   background:#f7f9fc;
@@ -406,6 +534,8 @@ body{
   margin-bottom:0;
   font-weight:bold;
 }
+
+/* TABLA DE SECTORES */
 
 .tabla-section{
   margin:0 4% 40px;
@@ -446,7 +576,8 @@ table{
   font-size:13px;
 }
 
-th,td{
+th,
+td{
   text-align:left;
   padding:12px;
   border-bottom:1px solid #eee;
@@ -467,9 +598,13 @@ tbody tr:hover{
   background:#f8fafc;
 }
 
+/* FILA PRIORITARIA - ROJO SUAVE */
+
 tbody tr.fila-prioritaria{
-  background:#fff7ed;
+  background:#fef2f2;
 }
+
+/* PIE DE PAGINA */
 
 footer{
   padding:25px;
@@ -478,18 +613,39 @@ footer{
   font-size:12px;
 }
 
+/* DISEÑO RESPONSIVE */
+
 @media(max-width:1000px){
-  .contenedor-principal{grid-template-columns:1fr}
+  .contenedor-principal{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:800px){
-  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpis{
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 @media(max-width:600px){
-  .header{display:block}
-  .estado-api{margin-top:15px}
-  .kpis{grid-template-columns:1fr}
-  .mapa-titulo{display:block}
-  .mapa-titulo small{display:block;margin-top:5px}
+  .header{
+    display:block;
+  }
+
+  .estado-api{
+    margin-top:15px;
+  }
+
+  .kpis{
+    grid-template-columns:1fr;
+  }
+
+  .mapa-titulo{
+    display:block;
+  }
+
+  .mapa-titulo small{
+    display:block;
+    margin-top:5px;
+  }
 }
