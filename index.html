@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,10 +12,15 @@
 
 <header class="header">
   <div>
-    <p class="subtitulo">SEGURIDAD Y SALUD EN EL TRABAJO</p>
-    <h1>Sistema Predictivo de Tendencias de Riesgo SST</h1>
+    <p class="subtitulo">
+      SEGURIDAD Y SALUD EN EL TRABAJO
+    </p>
+    <h1>
+      Sistema Predictivo de Tendencias de Riesgo SST
+    </h1>
     <p class="descripcion">
-      Monitoreo preventivo por sectores basado en tendencias, reincidencias y señales de riesgo.
+      Monitoreo preventivo por sectores basado en tendencias,
+      reincidencias y señales de riesgo.
     </p>
   </div>
 
@@ -31,38 +37,48 @@
       <span>Sectores monitoreados</span>
       <strong id="kpiSectores">8</strong>
     </div>
-
     <div class="kpi">
       <span>Registros SST</span>
       <strong id="kpiRegistros">--</strong>
     </div>
-
     <div class="kpi kpi-prioridad">
       <span>Sector prioritario</span>
       <strong id="kpiPrioritario">--</strong>
     </div>
-
     <div class="kpi">
       <span>Nivel actual</span>
       <strong id="kpiNivel" class="nivel-kpi">--</strong>
     </div>
   </section>
 
-  <section id="alertaPredictiva" class="alerta-predictiva oculto">
+  <section id="alertaPredictiva"
+           class="alerta-predictiva oculto">
     <div class="alerta-icono">⚠</div>
     <div>
-      <span class="alerta-etiqueta">SEÑAL PREDICTIVA</span>
+      <span class="alerta-etiqueta">
+        SEÑAL PREVENTIVA
+      </span>
       <strong id="alertaTitulo">--</strong>
       <p id="alertaTexto">--</p>
     </div>
   </section>
 
   <section class="leyenda">
-    <span class="leyenda-item"><i class="circulo sin-datos"></i>Sin datos</span>
-    <span class="leyenda-item"><i class="circulo bajo"></i>Bajo</span>
-    <span class="leyenda-item"><i class="circulo medio"></i>Medio</span>
-    <span class="leyenda-item"><i class="circulo alto"></i>Alto</span>
-    <span class="leyenda-item"><i class="circulo critico"></i>Crítico</span>
+    <span class="leyenda-item">
+      <i class="circulo sin-datos"></i>Sin datos
+    </span>
+    <span class="leyenda-item">
+      <i class="circulo bajo"></i>Bajo
+    </span>
+    <span class="leyenda-item">
+      <i class="circulo medio"></i>Medio
+    </span>
+    <span class="leyenda-item">
+      <i class="circulo alto"></i>Alto
+    </span>
+    <span class="leyenda-item">
+      <i class="circulo critico"></i>Crítico
+    </span>
   </section>
 
   <section class="contenedor-principal">
@@ -72,26 +88,29 @@
       <div class="mapa-titulo">
         <div>
           <span>MAPA DE CALOR</span>
-          <strong>Bocatoma Quitaracsa</strong>
+          <strong>Bocatoma Quebrada</strong>
         </div>
-        <small>El color cambia automáticamente según el Nivel_Sectorial</small>
+        <small>
+          El color cambia automáticamente
+          según el Nivel_Sectorial
+        </small>
       </div>
 
       <div class="mapa-visual">
 
         <img
           src="./mapa.png"
-          alt="Mapa sectorizado Bocatoma"
+          alt="Mapa sectorizado Bocatoma Quebrada"
           class="mapa-img"
         >
 
-        <!-- Capa dinámica de color. Las formas corresponden a tus 8 sectores. -->
         <svg
           class="mapa-overlay"
           viewBox="0 0 861 645"
           preserveAspectRatio="none"
           aria-label="Mapa de calor dinámico"
         >
+
           <polygon id="zona-1" data-zona="1"
             points="0,145 104,133 194,171 242,236 203,332 111,410 0,405" />
 
@@ -115,27 +134,48 @@
 
           <polygon id="zona-8" data-zona="8"
             points="0,366 169,331 337,487 389,645 0,645" />
+
         </svg>
 
-        <!-- Marcadores -->
-        <button class="sector sector-1" data-sector="1" title="Sector 1">1</button>
-        <button class="sector sector-2" data-sector="2" title="Sector 2">2</button>
-        <button class="sector sector-3" data-sector="3" title="Sector 3">3</button>
-        <button class="sector sector-4" data-sector="4" title="Sector 4">4</button>
-        <button class="sector sector-5" data-sector="5" title="Sector 5">5</button>
-        <button class="sector sector-6" data-sector="6" title="Sector 6">6</button>
-        <button class="sector sector-7" data-sector="7" title="Sector 7">7</button>
-        <button class="sector sector-8" data-sector="8" title="Sector 8">8</button>
+        <button class="sector sector-1"
+          data-sector="1" title="Sector 1">1</button>
+
+        <button class="sector sector-2"
+          data-sector="2" title="Sector 2">2</button>
+
+        <button class="sector sector-3"
+          data-sector="3" title="Sector 3">3</button>
+
+        <button class="sector sector-4"
+          data-sector="4" title="Sector 4">4</button>
+
+        <button class="sector sector-5"
+          data-sector="5" title="Sector 5">5</button>
+
+        <button class="sector sector-6"
+          data-sector="6" title="Sector 6">6</button>
+
+        <button class="sector sector-7"
+          data-sector="7" title="Sector 7">7</button>
+
+        <button class="sector sector-8"
+          data-sector="8" title="Sector 8">8</button>
 
       </div>
     </div>
 
     <aside class="detalle">
-      <p class="detalle-label">DETALLE DEL SECTOR</p>
 
-      <h2 id="detalleSector">Selecciona un sector</h2>
+      <p class="detalle-label">
+        DETALLE DEL SECTOR
+      </p>
 
-      <div id="badgeNivel" class="badge sin-datos">
+      <h2 id="detalleSector">
+        Selecciona un sector
+      </h2>
+
+      <div id="badgeNivel"
+           class="badge sin-datos">
         Sin selección
       </div>
 
@@ -164,30 +204,43 @@
       <div class="distribucion">
         <h3>Distribución de señales</h3>
 
-        <div class="barra-riesgo" aria-hidden="true">
-          <span id="barraBajo" class="barra bajo"></span>
-          <span id="barraMedio" class="barra medio"></span>
-          <span id="barraAlto" class="barra alto"></span>
-          <span id="barraCritico" class="barra critico"></span>
+        <div class="barra-riesgo"
+             aria-hidden="true">
+          <span id="barraBajo"
+                class="barra bajo"></span>
+          <span id="barraMedio"
+                class="barra medio"></span>
+          <span id="barraAlto"
+                class="barra alto"></span>
+          <span id="barraCritico"
+                class="barra critico"></span>
         </div>
 
         <div class="fila-distribucion">
-          <span><i class="punto bajo"></i>Bajo</span>
+          <span>
+            <i class="punto bajo"></i>Bajo
+          </span>
           <strong id="detalleBajo">0</strong>
         </div>
 
         <div class="fila-distribucion">
-          <span><i class="punto medio"></i>Medio</span>
+          <span>
+            <i class="punto medio"></i>Medio
+          </span>
           <strong id="detalleMedio">0</strong>
         </div>
 
         <div class="fila-distribucion">
-          <span><i class="punto alto"></i>Alto</span>
+          <span>
+            <i class="punto alto"></i>Alto
+          </span>
           <strong id="detalleAlto">0</strong>
         </div>
 
         <div class="fila-distribucion">
-          <span><i class="punto critico"></i>Crítico</span>
+          <span>
+            <i class="punto critico"></i>Crítico
+          </span>
           <strong id="detalleCritico">0</strong>
         </div>
       </div>
@@ -196,12 +249,30 @@
         <span>Factor principal</span>
         <p id="detalleFactor">--</p>
       </div>
-    </aside>
 
+    </aside>
+  </section>
+
+  <section class="ranking-section">
+    <div class="ranking-header">
+      <div>
+        <p class="detalle-label">
+          PRIORIZACIÓN
+        </p>
+        <h2>
+          Ranking de sectores por nivel de riesgo
+        </h2>
+      </div>
+      <span class="ranking-subtitulo">
+        Mayor índice = mayor prioridad preventiva
+      </span>
+    </div>
+
+    <div id="rankingSectores"
+         class="ranking-lista"></div>
   </section>
 
   <section class="tabla-section">
-
     <div class="tabla-header">
       <div>
         <p class="detalle-label">RESUMEN</p>
@@ -231,7 +302,6 @@
         <tbody id="tablaSectores"></tbody>
       </table>
     </div>
-
   </section>
 
 </main>
