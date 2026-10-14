@@ -3,20 +3,30 @@
   box-sizing:border-box;
 }
 
+/* =====================================
+   PAOLAAI - ESTILO EJECUTIVO
+   AZUL MARINO + AZUL PETROLEO
+   ===================================== */
+
 :root{
-  --fondo:#f4f7fb;
+  --fondo:#C7D5E3;
   --texto:#152033;
   --muted:#687386;
-  --borde:#e3e8ef;
-  --blanco:#fff;
+  --borde:#D7E1EC;
+  --blanco:#FFFFFF;
 
-  /* COLORES DEL MAPA DE CALOR */
-  --sin-datos:#94a3b8;
-  --bajo:#16a34a;
-  --medio:#facc15;
-  --alto:#dc2626;
-  --critico:#991b1b;
+  --azul-marino:#102D4F;
+  --azul-petroleo:#174D78;
+  --azul-celeste:#36A8E0;
+
+  --sin-datos:#94A3B8;
+  --bajo:#16A34A;
+  --medio:#FACC15;
+  --alto:#DC2626;
+  --critico:#991B1B;
 }
+
+/* FONDO GENERAL */
 
 body{
   margin:0;
@@ -25,20 +35,27 @@ body{
   color:var(--texto);
 }
 
-/* ENCABEZADO */
+/* ENCABEZADO EJECUTIVO */
 
 .header{
-  background:white;
-  padding:26px 4%;
+  background:linear-gradient(
+    120deg,
+    #102D4F 0%,
+    #174D78 55%,
+    #226C9A 100%
+  );
+  padding:30px 4%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid var(--borde);
+  border-bottom:3px solid #36A8E0;
+  box-shadow:0 4px 16px rgba(16,45,79,.16);
 }
 
 .header h1{
   margin:4px 0 8px;
   font-size:28px;
+  color:#FFFFFF;
 }
 
 .subtitulo,
@@ -47,13 +64,23 @@ body{
   font-size:11px;
   letter-spacing:1.5px;
   font-weight:bold;
-  color:#55708e;
+  color:#55708E;
+}
+
+.header .subtitulo{
+  color:#80C8F2;
 }
 
 .descripcion{
   margin:0;
   color:var(--muted);
 }
+
+.header .descripcion{
+  color:#DCEAF5;
+}
+
+/* ESTADO DE CONEXION */
 
 .estado-api{
   display:flex;
@@ -62,22 +89,28 @@ body{
   font-size:13px;
 }
 
+.header .estado-api{
+  color:#FFFFFF;
+}
+
 .estado-dot{
   width:10px;
   height:10px;
   border-radius:50%;
-  background:#aaa;
+  background:#94A3B8;
 }
 
 .estado-dot.online{
-  background:#20a464;
+  background:#22C55E;
 }
 
 .estado-dot.error{
-  background:#d9363e;
+  background:#EF4444;
 }
 
-/* INDICADORES KPI */
+/* =====================================
+   TARJETAS KPI
+   ===================================== */
 
 .kpis{
   display:grid;
@@ -87,11 +120,12 @@ body{
 }
 
 .kpi{
-  background:white;
+  background:#FFFFFF;
   padding:18px 20px;
   border-radius:16px;
   border:1px solid var(--borde);
-  box-shadow:0 8px 24px rgba(24,39,75,.04);
+  box-shadow:0 8px 24px rgba(16,45,79,.08);
+  border-top:3px solid #36A8E0;
 }
 
 .kpi span{
@@ -103,6 +137,7 @@ body{
 
 .kpi strong{
   font-size:25px;
+  color:var(--azul-marino);
 }
 
 .nivel-kpi{
@@ -111,18 +146,47 @@ body{
   border-radius:999px;
 }
 
-/* ALERTA PREVENTIVA - ROJO */
+/* NIVEL ACTUAL */
+
+.nivel-kpi.alto{
+  background:var(--alto);
+  color:#FFFFFF;
+}
+
+.nivel-kpi.medio{
+  background:var(--medio);
+  color:#1F2937;
+}
+
+.nivel-kpi.bajo{
+  background:var(--bajo);
+  color:#FFFFFF;
+}
+
+.nivel-kpi.critico{
+  background:var(--critico);
+  color:#FFFFFF;
+}
+
+/* =====================================
+   ALERTA PREVENTIVA
+   ===================================== */
 
 .alerta-predictiva{
   margin:0 4% 16px;
-  background:linear-gradient(90deg,#fef2f2,#fff);
-  border:1px solid #fecaca;
+  background:linear-gradient(
+    90deg,
+    #FEE2E2 0%,
+    #FFFFFF 100%
+  );
+  border:1px solid #FECACA;
   border-left:5px solid var(--alto);
   border-radius:14px;
   padding:14px 18px;
   display:flex;
   gap:14px;
   align-items:center;
+  box-shadow:0 6px 16px rgba(16,45,79,.05);
 }
 
 .alerta-predictiva.oculto{
@@ -136,8 +200,8 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#fee2e2;
-  color:#dc2626;
+  background:#FEE2E2;
+  color:#DC2626;
   font-size:23px;
   font-weight:bold;
 }
@@ -147,22 +211,25 @@ body{
   font-size:10px;
   letter-spacing:1.2px;
   font-weight:800;
-  color:#b91c1c;
+  color:#B91C1C;
   margin-bottom:3px;
 }
 
 .alerta-predictiva strong{
   display:block;
   font-size:16px;
+  color:#102D4F;
 }
 
 .alerta-predictiva p{
   margin:4px 0 0;
-  color:#7f1d1d;
+  color:#7F1D1D;
   font-size:13px;
 }
 
-/* LEYENDA DEL MAPA */
+/* =====================================
+   LEYENDA DEL MAPA
+   ===================================== */
 
 .leyenda{
   display:flex;
@@ -176,6 +243,8 @@ body{
   display:flex;
   align-items:center;
   gap:6px;
+  color:#102D4F;
+  font-weight:600;
 }
 
 .circulo,
@@ -185,8 +254,6 @@ body{
   border-radius:50%;
   display:inline-block;
 }
-
-/* CLASIFICACION DE NIVELES */
 
 .sin-datos{
   background:var(--sin-datos);
@@ -208,7 +275,9 @@ body{
   background:var(--critico);
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* =====================================
+   CONTENEDOR PRINCIPAL
+   ===================================== */
 
 .contenedor-principal{
   display:grid;
@@ -217,14 +286,16 @@ body{
   padding:0 4% 28px;
 }
 
-/* MAPA */
+/* =====================================
+   MAPA DE CALOR
+   ===================================== */
 
 .mapa-wrapper{
-  background:white;
+  background:#FFFFFF;
   border-radius:18px;
   overflow:hidden;
   border:1px solid var(--borde);
-  box-shadow:0 10px 30px rgba(24,39,75,.05);
+  box-shadow:0 10px 30px rgba(16,45,79,.10);
 }
 
 .mapa-titulo{
@@ -233,13 +304,14 @@ body{
   justify-content:space-between;
   align-items:end;
   gap:12px;
+  border-bottom:1px solid #E8EFF5;
 }
 
 .mapa-titulo span{
   display:block;
   font-size:10px;
   letter-spacing:1.3px;
-  color:#60758d;
+  color:#226C9A;
   font-weight:800;
 }
 
@@ -247,11 +319,14 @@ body{
   display:block;
   font-size:19px;
   margin-top:3px;
+  color:#102D4F;
 }
 
 .mapa-titulo small{
-  color:#7b8798;
+  color:#60758D;
 }
+
+/* IMAGEN DEL MAPA */
 
 .mapa-visual{
   position:relative;
@@ -264,7 +339,7 @@ body{
   display:block;
 }
 
-/* POLIGONOS DEL MAPA DE CALOR */
+/* POLIGONOS INTERACTIVOS */
 
 .mapa-overlay{
   position:absolute;
@@ -289,7 +364,7 @@ body{
   cursor:pointer;
 }
 
-/* SIN DATOS - GRIS */
+/* SIN DATOS */
 
 .mapa-overlay polygon.sin-datos{
   fill:rgba(148,163,184,.14);
@@ -307,7 +382,7 @@ body{
 
 .mapa-overlay polygon.medio{
   fill:rgba(250,204,21,.34);
-  stroke:#eab308;
+  stroke:#EAB308;
 }
 
 /* ALTO - ROJO */
@@ -324,7 +399,7 @@ body{
   stroke:var(--critico);
 }
 
-/* SELECCION DEL MAPA */
+/* EFECTOS DE SELECCION */
 
 .mapa-overlay polygon:hover,
 .mapa-overlay polygon.seleccionado{
@@ -333,7 +408,9 @@ body{
   stroke-width:5;
 }
 
-/* IDENTIFICADORES DE SECTORES */
+/* =====================================
+   BOTONES DE SECTORES
+   ===================================== */
 
 .sector{
   position:absolute;
@@ -350,19 +427,20 @@ body{
   justify-content:center;
   box-shadow:0 4px 12px rgba(0,0,0,.24);
   transition:.18s;
-  color:#17202a;
+  color:#17202A;
 }
 
 .sector:hover{
   transform:scale(1.12);
 }
 
-/* TEXTO BLANCO PARA FONDOS ROJOS */
-
 .sector.alto,
 .sector.critico{
-  color:#fff;
+  color:#FFFFFF;
 }
+
+/* POSICIONES ACTUALES
+   DE LOS SECTORES */
 
 .sector-1{
   left:10%;
@@ -404,18 +482,21 @@ body{
   top:78%;
 }
 
-/* DETALLE DEL SECTOR */
+/* =====================================
+   DETALLE DEL SECTOR
+   ===================================== */
 
 .detalle{
-  background:white;
+  background:#FFFFFF;
   border-radius:18px;
   border:1px solid var(--borde);
   padding:22px;
-  box-shadow:0 10px 30px rgba(24,39,75,.05);
+  box-shadow:0 10px 30px rgba(16,45,79,.10);
 }
 
 .detalle h2{
   margin:7px 0 12px;
+  color:#102D4F;
 }
 
 .badge,
@@ -429,29 +510,33 @@ body{
   font-weight:800;
 }
 
+/* ETIQUETAS DE NIVEL */
+
 .badge.alto,
 .nivel-tabla.alto{
   background:var(--alto);
-  color:#fff;
+  color:#FFFFFF;
 }
 
 .badge.medio,
 .nivel-tabla.medio{
   background:var(--medio);
-  color:#1f2937;
+  color:#1F2937;
 }
 
 .badge.bajo,
 .nivel-tabla.bajo{
   background:var(--bajo);
-  color:#fff;
+  color:#FFFFFF;
 }
 
 .badge.critico,
 .nivel-tabla.critico{
   background:var(--critico);
-  color:#fff;
+  color:#FFFFFF;
 }
+
+/* INDICADORES DE DETALLE */
 
 .detalle-grid{
   display:grid;
@@ -461,7 +546,7 @@ body{
 }
 
 .detalle-grid div{
-  background:#f7f9fc;
+  background:#EEF4FA;
   border-radius:11px;
   padding:13px;
 }
@@ -475,9 +560,12 @@ body{
 
 .detalle-grid strong{
   font-size:17px;
+  color:#102D4F;
 }
 
-/* DISTRIBUCION DE REGISTROS */
+/* =====================================
+   DISTRIBUCION DE REGISTROS
+   ===================================== */
 
 .distribucion{
   margin-top:22px;
@@ -485,6 +573,7 @@ body{
 
 .distribucion h3{
   font-size:14px;
+  color:#102D4F;
 }
 
 .barra-riesgo{
@@ -493,7 +582,7 @@ body{
   display:flex;
   overflow:hidden;
   border-radius:999px;
-  background:#eef2f6;
+  background:#E5EDF5;
   margin:12px 0 10px;
 }
 
@@ -507,7 +596,7 @@ body{
   display:flex;
   justify-content:space-between;
   padding:8px 0;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid #E8EFF5;
 }
 
 .fila-distribucion span{
@@ -520,9 +609,10 @@ body{
 
 .factor{
   margin-top:22px;
-  background:#f7f9fc;
+  background:#EEF4FA;
   padding:14px;
   border-radius:11px;
+  border-left:3px solid #36A8E0;
 }
 
 .factor span{
@@ -533,17 +623,20 @@ body{
 .factor p{
   margin-bottom:0;
   font-weight:bold;
+  color:#102D4F;
 }
 
-/* TABLA DE SECTORES */
+/* =====================================
+   TABLA Y RANKING
+   ===================================== */
 
 .tabla-section{
   margin:0 4% 40px;
-  background:white;
+  background:#FFFFFF;
   padding:22px;
   border-radius:18px;
   border:1px solid var(--borde);
-  box-shadow:0 10px 30px rgba(24,39,75,.05);
+  box-shadow:0 10px 30px rgba(16,45,79,.10);
 }
 
 .tabla-header{
@@ -554,16 +647,32 @@ body{
 
 .tabla-header h2{
   margin-top:5px;
+  color:#102D4F;
 }
+
+/* BOTON ACTUALIZAR */
 
 #btnActualizar{
   border:0;
-  background:#17202a;
-  color:white;
+  background:linear-gradient(
+    120deg,
+    #102D4F,
+    #226C9A
+  );
+  color:#FFFFFF;
   padding:10px 17px;
   border-radius:8px;
   cursor:pointer;
+  font-weight:600;
+  transition:.2s;
 }
+
+#btnActualizar:hover{
+  background:#174D78;
+  box-shadow:0 4px 12px rgba(16,45,79,.20);
+}
+
+/* TABLA */
 
 .tabla-scroll{
   overflow-x:auto;
@@ -580,13 +689,14 @@ th,
 td{
   text-align:left;
   padding:12px;
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid #E5EDF5;
 }
 
 th{
-  color:var(--muted);
+  color:#55708E;
   font-size:10px;
   text-transform:uppercase;
+  background:#F1F6FB;
 }
 
 tbody tr{
@@ -595,41 +705,54 @@ tbody tr{
 }
 
 tbody tr:hover{
-  background:#f8fafc;
+  background:#EDF5FC;
 }
 
-/* FILA PRIORITARIA - ROJO SUAVE */
+/* SECTOR PRIORITARIO */
 
 tbody tr.fila-prioritaria{
-  background:#fef2f2;
+  background:#FEF2F2;
 }
 
-/* PIE DE PAGINA */
+/* =====================================
+   PIE DE PAGINA
+   ===================================== */
 
 footer{
   padding:25px;
   text-align:center;
-  color:var(--muted);
+  color:#365B7A;
   font-size:12px;
 }
 
-/* DISEÑO RESPONSIVE */
+/* =====================================
+   DISEÑO RESPONSIVE
+   ===================================== */
 
 @media(max-width:1000px){
+
   .contenedor-principal{
     grid-template-columns:1fr;
   }
+
 }
 
 @media(max-width:800px){
+
   .kpis{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
 @media(max-width:600px){
+
   .header{
     display:block;
+  }
+
+  .header h1{
+    font-size:23px;
   }
 
   .estado-api{
@@ -648,4 +771,9 @@ footer{
     display:block;
     margin-top:5px;
   }
+
+  .leyenda{
+    gap:10px;
+  }
+
 }
